@@ -1,5 +1,5 @@
 a=12
-b=25
+b=23
 c=10
 total = a+b-c
 print(total)
