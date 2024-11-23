@@ -16,6 +16,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build and Push the Docker image
       run: |
-        docker login --username StanRemus15 --password ${{secrets.DOCKERHUB_PASSWORD}} ghcr.io
+        docker login --username StanRemus15 --password ${{secrets.LOGIN}} ghcr.io
         docker build . --tag ghcr.io/stanremus15/proiectmap:latest
         docker push ghcr.io/stanremus15/proiectmap:latest
