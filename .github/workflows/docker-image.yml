@@ -27,6 +27,6 @@ jobs:
       id: docker_build
       env:
         IMAGE_NAME: ghcr.io/${{ github.repository }}/map-project
-      run: |
+      run: 
         docker build . --file Dockerfile --tag $IMAGE_NAME:latest
         docker push $IMAGE_NAME:latest
