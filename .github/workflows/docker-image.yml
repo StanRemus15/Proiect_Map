@@ -18,4 +18,4 @@ jobs:
       run: |
         docker login --username StanRemus15 --password ${{secrets.GH_PAT}} ghcr.io
         docker build . --tag ghcr.io/stanremus15/proiectmap:latest
-        docker push ghcr.io/stanremus15/proiectmap:latest
+        docker push ghcr.io/stanremus15/proiectmap
