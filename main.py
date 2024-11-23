@@ -1,6 +1,3 @@
-a=12
-b=23
-c=10
-total = a+b-c
-total = total + 10
-print(total)
+import matplotlib.pyplot as pl
+import numpy as npy
+import random
