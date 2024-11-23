@@ -1,4 +1,5 @@
-a=2
-b=9
-sum=a+b
-print(sum) 
+a=12
+b=25
+c=10
+total = a+b-c
+print(total)
