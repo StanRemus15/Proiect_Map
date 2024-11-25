@@ -17,3 +17,18 @@ def generare_turnuri(n):
         tabla_sah[linie][coloane]=1
         coloane_ocupate.add(coloane)
     return tabla_sah
+
+def formare_tabla_sah(tabla):
+    dimesiune=len(tabla)
+    pl.figure(figsize=(8,8))
+    axa = pl.gca()
+    for linie in range(dimesiune):
+        for coloana in range(dimesiune):
+            if (coloana + linie)%2 == 0:
+                culoare_patrat = "white"
+            else:
+                culoare_patrat="black"
+
+    patrat = pl.Rectangle((coloana,linie),1,1,color=culoare_patrat)
+    axa.add_patch(patrat)
+    
