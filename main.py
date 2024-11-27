@@ -32,3 +32,10 @@ def formare_tabla_sah(tabla):
     patrat = pl.Rectangle((coloana,linie),1,1,color=culoare_patrat)
     axa.add_patch(patrat)
     
+    for linie in range(dimesiune):
+        for coloana in range(dimesiune):
+            if tabla[linie][coloana]==1:
+                axa_x = coloana+0.5
+                axa_y= dimesiune-linie-0.5
+                axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=24,color="red")
+    
