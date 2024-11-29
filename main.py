@@ -27,10 +27,10 @@ def formare_tabla_sah(tabla):
             if (coloana + linie)%2 == 0:
                 culoare_patrat = "white"
             else:
-                culoare_patrat="black"
+                culoare_patrat = "black"
 
-    patrat = pl.Rectangle((coloana,linie),1,1,color=culoare_patrat)
-    axa.add_patch(patrat)
+            patrat = pl.Rectangle((coloana,dimensiune-linie-1),1,1,color=culoare_patrat)
+            axa.add_patch(patrat)
     
     for linie in range(dimesiune):
         for coloana in range(dimesiune):
