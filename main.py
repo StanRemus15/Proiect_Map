@@ -50,6 +50,7 @@ def formare_tabla_sah(tabla):
     axa.grid(color="black",linestyle="-",linewidth=1)
     axa.invert_yaxis()
     
+    pl.gcf().canvas.manager.set_window_title("Problema celor 8 turnuri")
     pl.show()
     
 dimensiune = 8
