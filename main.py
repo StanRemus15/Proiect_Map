@@ -40,10 +40,12 @@ def formare_tabla_sah(tabla,frame):
     for linie in range(dimensiune):
         for coloana in range(dimensiune):
             if tabla[linie][coloana]==1:
-                axa_x = coloana+0.5
-                axa_y= dimensiune-linie-0.5
-                axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=45,color="grey")
-                
+                axa_x = coloana+0.50
+                axa_y= dimensiune-linie-0.50
+                if (coloana+linie)%2 == 0:
+                    axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=45,color="black")
+                else:
+                    axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=45,color="white")
                 
     axa.set_xlim(0,dimensiune)
     axa.set_ylim(0,dimensiune)
