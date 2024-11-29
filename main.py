@@ -58,6 +58,9 @@ def formare_tabla_sah(tabla,frame):
     canvas_widget.pack(fill="both",expand=True)
     canvas.draw()
     
+def inchidere():
+    pl.close('all')
+    root.destroy()
 
 dimensiune = 8
 
@@ -73,4 +76,5 @@ canvas_frame.pack(fill="both",expand=True)
 tabla_sah=generare_turnuri(dimensiune)
 formare_tabla_sah(tabla_sah,canvas_frame)
 
+root.protocol("WM_DELETE_WINDOW",inchidere)
 root.mainloop()
