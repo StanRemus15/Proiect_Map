@@ -1,6 +1,8 @@
 import matplotlib.pyplot as pl
+from matplotlib.backends.backend_tkagg import *
 import numpy as npy
 import random
+from tkinter import *
 
 def generare_turnuri(n):
     tabla_sah = []
@@ -18,7 +20,7 @@ def generare_turnuri(n):
         coloane_ocupate.add(coloane)
     return tabla_sah
 
-def formare_tabla_sah(tabla):
+def formare_tabla_sah(tabla,frame):
     pl.rcParams['toolbar'] = 'none'
     dimesiune=len(tabla)
     fereastra = pl.figure(figsize=(8,8))
@@ -48,14 +50,27 @@ def formare_tabla_sah(tabla):
     
     axa.set_xticklabels([])
     axa.set_yticklabels([])
-
-    #axa.grid(color="black",linestyle="-",linewidth=1)
     axa.grid(False)
     axa.invert_yaxis()
     
-    pl.gcf().canvas.manager.set_window_title("Problema celor 8 turnuri")
-    pl.show()
+    canvas = FigureCanvasTkAgg(fereastra,master=frame)
+    canvas_widget = canvas.get_tk_widget()
+    canvas_widget.pack(fill="both",expand=True)
+    canvas.draw()
     
+
 dimensiune = 8
-tabla_sah = generare_turnuri(dimensiune)
-formare_tabla_sah(tabla_sah)
+
+root = Tk()
+root.title("Problema celor 8 turnuri")
+root.geometry("900x900")
+root.resizable(False,False)
+
+
+canvas_frame=Frame(root)
+canvas_frame.pack(fill="both",expand=True)
+
+tabla_sah=generare_turnuri(dimensiune)
+formare_tabla_sah(tabla_sah,canvas_frame)
+
+root.mainloop()
