@@ -19,9 +19,11 @@ def generare_turnuri(n):
     return tabla_sah
 
 def formare_tabla_sah(tabla):
+    pl.rcParams['toolbar'] = 'none'
     dimesiune=len(tabla)
-    pl.figure(figsize=(8,8))
+    fereastra = pl.figure(figsize=(8,8))
     axa = pl.gca()
+       
     for linie in range(dimesiune):
         for coloana in range(dimesiune):
             if (coloana + linie)%2 == 0:
@@ -31,13 +33,13 @@ def formare_tabla_sah(tabla):
 
             patrat = pl.Rectangle((coloana,dimensiune-linie-1),1,1,color=culoare_patrat)
             axa.add_patch(patrat)
-    
+            
     for linie in range(dimesiune):
         for coloana in range(dimesiune):
             if tabla[linie][coloana]==1:
                 axa_x = coloana+0.5
                 axa_y= dimesiune-linie-0.5
-                axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=24,color="red")
+                axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=40,color="red")
     axa.set_xlim(0,dimesiune)
     axa.set_ylim(0,dimesiune)
     
@@ -47,7 +49,8 @@ def formare_tabla_sah(tabla):
     axa.set_xticklabels([])
     axa.set_yticklabels([])
 
-    axa.grid(color="black",linestyle="-",linewidth=1)
+    #axa.grid(color="black",linestyle="-",linewidth=1)
+    axa.grid(False)
     axa.invert_yaxis()
     
     pl.gcf().canvas.manager.set_window_title("Problema celor 8 turnuri")
