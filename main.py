@@ -38,4 +38,20 @@ def formare_tabla_sah(tabla):
                 axa_x = coloana+0.5
                 axa_y= dimesiune-linie-0.5
                 axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=24,color="red")
+    axa.set_xlim(0,dimesiune)
+    axa.set_ylim(0,dimesiune)
     
+    axa.set_xticks(range(dimesiune+1))
+    axa.set_yticks(range(dimesiune+1))
+    
+    axa.set_xticklabels([])
+    axa.set_yticklabels([])
+
+    axa.grid(color="black",linestyle="-",linewidth=1)
+    axa.invert_yaxis()
+    
+    pl.show()
+    
+dimensiune = 8
+tabla_sah = generare_turnuri(dimensiune)
+formare_tabla_sah(tabla_sah)
