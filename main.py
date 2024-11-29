@@ -1,8 +1,8 @@
-import matplotlib.pyplot as pl
 from matplotlib.backends.backend_tkagg import *
-import numpy as npy
-import random
 from tkinter import *
+import random
+import matplotlib.pyplot as pl
+import numpy as npy
 
 def generare_turnuri(n):
     tabla_sah = []
@@ -22,12 +22,13 @@ def generare_turnuri(n):
 
 def formare_tabla_sah(tabla,frame):
     pl.rcParams['toolbar'] = 'none'
-    dimesiune=len(tabla)
+    dimensiune=len(tabla)
     fereastra = pl.figure(figsize=(8,8))
     axa = pl.gca()
-       
-    for linie in range(dimesiune):
-        for coloana in range(dimesiune):
+   
+  
+    for linie in range(dimensiune):
+        for coloana in range(dimensiune):
             if (coloana + linie)%2 == 0:
                 culoare_patrat = "white"
             else:
@@ -36,17 +37,19 @@ def formare_tabla_sah(tabla,frame):
             patrat = pl.Rectangle((coloana,dimensiune-linie-1),1,1,color=culoare_patrat)
             axa.add_patch(patrat)
             
-    for linie in range(dimesiune):
-        for coloana in range(dimesiune):
+    for linie in range(dimensiune):
+        for coloana in range(dimensiune):
             if tabla[linie][coloana]==1:
                 axa_x = coloana+0.5
-                axa_y= dimesiune-linie-0.5
-                axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=40,color="red")
-    axa.set_xlim(0,dimesiune)
-    axa.set_ylim(0,dimesiune)
+                axa_y= dimensiune-linie-0.5
+                axa.text(axa_x,axa_y,"♖",ha="center",va="center",fontsize=45,color="grey")
+                
+                
+    axa.set_xlim(0,dimensiune)
+    axa.set_ylim(0,dimensiune)
     
-    axa.set_xticks(range(dimesiune+1))
-    axa.set_yticks(range(dimesiune+1))
+    axa.set_xticks(range(dimensiune+1))
+    axa.set_yticks(range(dimensiune+1))
     
     axa.set_xticklabels([])
     axa.set_yticklabels([])
