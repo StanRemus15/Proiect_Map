@@ -3,6 +3,9 @@ from tkinter import *
 import random
 import matplotlib.pyplot as pl
 import numpy as npy
+import os
+
+os.environ["DISPLAY"]=":99"
 
 def generare_turnuri(n):
     tabla_sah = []
