@@ -3,6 +3,7 @@ import socketserver
 import random
 import matplotlib.pyplot as pl
 import os
+from io import BytesIO
 
 
 def generare_turnuri(n):
@@ -59,19 +60,32 @@ def formare_tabla_sah(tabla):
     axa.grid(False)
     axa.invert_yaxis()
     
-    output_file="tabla_sah.png"
-    pl.savefig(output_file,bbox_inches='tight')
-    pl.close(fereastra)
-
-
-dimensiune = 8
-tabla_sah=generare_turnuri(dimensiune)
-formare_tabla_sah(tabla_sah)
-
-PORT=8000
-Handler = http.server.SimpleHTTPRequestHandler
-
-os.chdir(os.getcwd())
+    img_io=BytesIO()
+    fereastra.savefig(img_io,format='png',bbox_inches='tight')
+    img_io.seek(0)
+    return img_io
     
-with socketserver.TCPServer(("",PORT),Handler) as httpd:
+    #output_file="tabla_sah.png"
+    #pl.savefig(output_file,bbox_inches='tight')
+    #pl.close(fereastra)
+
+class RequestHandler(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        if self.path=="/tabla_sah.png":
+            dimensiune = 8
+            tabla_sah=generare_turnuri(dimensiune)
+            img_io=formare_tabla_sah(tabla_sah)
+            
+            self.send_response(200)
+            self.send_header('Content-type','image/png')
+            self.end_headers()
+            self.wfile.write(img_io.read())
+        else: 
+            super().do_GET()
+PORT=8000
+
+
+#os.chdir(os.getcwd())
+    
+with socketserver.TCPServer(("",PORT),RequestHandler) as httpd:
     httpd.serve_forever()
