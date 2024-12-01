@@ -2,6 +2,7 @@ import http.server
 import socketserver
 import random
 import matplotlib.pyplot as pl
+import os
 
 
 def generare_turnuri(n):
@@ -58,21 +59,19 @@ def formare_tabla_sah(tabla):
     axa.grid(False)
     axa.invert_yaxis()
     
-    pl.savefig("tabla_sah.png",bbox_inches='tight')
+    output_file="tabla_sah.png"
+    pl.savefig(output_file,bbox_inches='tight')
     pl.close(fereastra)
 
-def start_server():
-    PORT=8000
-    Handler = http.server.SimpleHTTPRequestHandler
-    
-    with socketserver.TCPServer(("",PORT),Handler) as httpd:
-        httpd.serve_forever()
 
-if __name__ == "__main__":
-    
-    dimensiune = 8
+dimensiune = 8
+tabla_sah=generare_turnuri(dimensiune)
+formare_tabla_sah(tabla_sah)
 
-    tabla_sah=generare_turnuri(dimensiune)
-    formare_tabla_sah(tabla_sah)
+PORT=8000
+Handler = http.server.SimpleHTTPRequestHandler
+
+os.chdir(os.getcwd())
     
-    start_server()
+with socketserver.TCPServer(("",PORT),Handler) as httpd:
+    httpd.serve_forever()
