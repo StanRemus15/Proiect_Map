@@ -1,14 +1,10 @@
 FROM python:latest
 WORKDIR D:\Github-rep\Proiect_Map
 COPY main.py .
-RUN pip install --no-cache-dir matplotlib
 RUN apt-get update && apt-get install -y \
-    python3-tk \
-    libxrender1 \
-    libx11-6 \
-    libxext6 \
-    x11-utils \
-    xvfb \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libx11-dev \
     && rm -rf /var/lib/apt/lists/*
-
+RUN pip install matplotlib numpy
 CMD [ "python","main.py" ]
