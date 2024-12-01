@@ -1,11 +1,6 @@
-from matplotlib.backends.backend_tkagg import *
-from tkinter import *
 import random
 import matplotlib.pyplot as pl
 import numpy as npy
-import os
-
-os.environ["DISPLAY"]=":99"
 
 def generare_turnuri(n):
     tabla_sah = []
@@ -23,7 +18,7 @@ def generare_turnuri(n):
         coloane_ocupate.add(coloane)
     return tabla_sah
 
-def formare_tabla_sah(tabla,frame):
+def formare_tabla_sah(tabla,imagine_tabla):
     pl.rcParams['toolbar'] = 'none'
     dimensiune=len(tabla)
     fereastra = pl.figure(figsize=(8,8))
@@ -61,28 +56,13 @@ def formare_tabla_sah(tabla,frame):
     axa.grid(False)
     axa.invert_yaxis()
     
-    canvas = FigureCanvasTkAgg(fereastra,master=frame)
-    canvas_widget = canvas.get_tk_widget()
-    canvas_widget.pack(fill="both",expand=True)
-    canvas.draw()
+    pl.savefig(imagine_tabla,bbox_inches='tight')
+    pl.close(fereastra)
     
-def inchidere():
-    pl.close('all')
-    root.destroy()
+    
 
 dimensiune = 8
 
-root = Tk()
-root.title("Problema celor 8 turnuri")
-root.geometry("900x900")
-root.resizable(False,False)
-
-
-canvas_frame=Frame(root)
-canvas_frame.pack(fill="both",expand=True)
-
 tabla_sah=generare_turnuri(dimensiune)
-formare_tabla_sah(tabla_sah,canvas_frame)
+formare_tabla_sah(tabla_sah,"tabla_sah.png")
 
-root.protocol("WM_DELETE_WINDOW",inchidere)
-root.mainloop()
