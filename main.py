@@ -1,6 +1,8 @@
-from matplotlib.backends.backend_tkagg import *
+import http.server
+import socketserver
 import random
 import matplotlib.pyplot as pl
+
 
 def generare_turnuri(n):
     tabla_sah = []
@@ -59,8 +61,18 @@ def formare_tabla_sah(tabla):
     pl.savefig("tabla_sah.png",bbox_inches='tight')
     pl.close(fereastra)
 
+def start_server():
+    PORT=8000
+    Handler = http.server.SimpleHTTPRequestHandler
+    
+    with socketserver.TCPServer(("",PORT),Handler) as httpd:
+        httpd.serve_forever()
 
-dimensiune = 8
+if __name__ == "__main__":
+    
+    dimensiune = 8
 
-tabla_sah=generare_turnuri(dimensiune)
-formare_tabla_sah(tabla_sah)
+    tabla_sah=generare_turnuri(dimensiune)
+    formare_tabla_sah(tabla_sah)
+    
+    start_server()
