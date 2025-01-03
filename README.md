@@ -5,3 +5,10 @@
 "Problema celor 8 turnuri" este o problema clasica de programare. Am ales sa folosesc limbajul Python pentru implementarea rezolvarii
 acestei probleme,deoarece,prin prezenta modulelor,mi-a facilitat o gama larga de solutii,atat pentru partea vizuala,cat si pentru partea
 de server al programului.
+
+Repository-ul contine urmatoarele fisiere:
+
+* Fisierul "main.py" ce contine codul sursa
+* Un fisier de tip "Dockerfile" pentru a putea accesa imaginea Python
+* Un fisier de tip .yml pentru automatizarea programului prin construirea si publicarea imaginii in package
+* Fisierul "README.md" pentru documentatia proiectului
