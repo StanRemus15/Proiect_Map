@@ -6,7 +6,9 @@
 acestei probleme,deoarece,prin prezenta modulelor,mi-a facilitat o gama larga de solutii,atat pentru partea vizuala,cat si pentru partea
 de server al programului.
 
-Repository-ul contine urmatoarele fisiere:
+Programul are in spate imginea Docker "python:latest".
+
+## Repository-ul contine urmatoarele fisiere:
 
 * Fisierul "main.py" ce contine codul sursa
 * Un fisier de tip "Dockerfile" pentru a putea accesa imaginea Python
