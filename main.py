@@ -64,10 +64,6 @@ def formare_tabla_sah(tabla):
     fereastra.savefig(img_io,format='png',bbox_inches='tight')
     img_io.seek(0)
     return img_io
-    
-    #output_file="tabla_sah.png"
-    #pl.savefig(output_file,bbox_inches='tight')
-    #pl.close(fereastra)
 
 class RequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
@@ -84,8 +80,6 @@ class RequestHandler(http.server.SimpleHTTPRequestHandler):
             super().do_GET()
 PORT=8000
 
-
-#os.chdir(os.getcwd())
     
 with socketserver.TCPServer(("",PORT),RequestHandler) as httpd:
     httpd.serve_forever()
