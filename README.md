@@ -18,6 +18,6 @@ Programul are in spate imginea Docker "python:latest".
 
 ## Instalare & Rulare
 
-1.Instalarea package-ului **proiectmap** prin comanda : docker pull ghcr.io/stanremus15/proiectmap:latest;
-2.Rularea imaginii cu comanda : docker run -d -p 8080:8000 proiectmap;
-3.Pentru a verifica rezultatele se va accesa linkul : http://localhost:8080/tabla_sah.png;
+1. Instalarea package-ului **proiectmap** prin comanda : docker pull ghcr.io/stanremus15/proiectmap:latest;
+2. Rularea imaginii cu comanda : docker run -d -p 8080:8000 proiectmap;
+3. Pentru a verifica rezultatele se va accesa linkul : http://localhost:8080/tabla_sah.png;
