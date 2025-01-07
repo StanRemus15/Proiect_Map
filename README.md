@@ -27,3 +27,5 @@ Programul are in spate imginea Docker "python:latest".
 O reprezentare vizuala a unei solutii random este urmatoarea:
 
  ![Solutie](Documentatie/screen1.jpg)
+
+Aceasta solutie se va schimba de fiecare data cand utilizatorul va da refresh paginii.
