@@ -26,4 +26,4 @@ Programul are in spate imginea Docker "python:latest".
 
 O reprezentare vizuala a unei solutii random este urmatoarea:
 
- ![Solutie](screen1.jpg)
+ ![Solutie](Documentatie/screen1.jpg)
